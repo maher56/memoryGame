@@ -15,6 +15,7 @@ cards.each((i , e) => {$(e).css("order" , orders[order][i]);});
 cardHeight();
 $(window).resize( () => cardHeight());
 
+showAll();
 cards.on("click", function() {
     let fliped = cards.parent().children(".flip");
     if($(this).hasClass("flip") ||
@@ -65,5 +66,17 @@ function sound(right) {
 
 function cardHeight() {
     cards.outerHeight(cards.outerWidth() , 1)
+}
+
+function showAll() {
+    cards.addClass("flip");
+    
+    setTimeout(() => {
+        cards.removeClass("flip");
+    } , 2500)
+
+    setTimeout(() => {
+        cards.closest(".board").removeClass("showAll");
+    } , 2900)
 }
 })
